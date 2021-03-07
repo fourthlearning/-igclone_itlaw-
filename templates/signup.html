@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>Instagram</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet"  type="text/css" href="{% static 'css/styles.css'%}">
+        <script src="https://kit.fontawesome.com/5899b615f7.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <main id="login">
+            <div class="login__column">
+                <img src="{% static "images/phoneImage.png" %}"class="login__phone" />
+            </div>
+            <div class="login__column">
+                <div class="login__box">
+                    <img src="{% static "images/loginLogo.png" %}" class="login__logo" />
+                    <br><span class="login__divider1"> Sign up to see photos and videos<br> from your friends.</span>
+                    <form action="{% url 'signup' %}" method="POST" class="login__form">
+                        {% csrf_token %}
+                        <input type="text" name="phone_number" id="phone_number"  placeholder="Mobile Number or Email" value="{{IGUser.phone_number}}" required />
+                        <input type="text" name="fullname" id="fullname" placeholder="Full Name" value="{{IGUser.fullname}}" required />
+                        <input type="text" name="username" placeholder="Username" value="{{IGUser.username}}" required />
+                        <input type="password" name="password" placeholder="Password" value="{{IGUser.password}}" required />
+                        <input type="submit" value="Sign up" />
+                        
+                    </form>
+                    <span class="login__divider">or</span>
+                    <a href="#" class="login__link">
+                        <i class="fab fa-facebook-square"></i>
+                        Log in with Facebook
+                    </a>
+                </div>
+                <div class="login__box">
+                    <span> Have an account?</span> <a href="{% url 'login' %}">Log in</a>
+                </div>
+                <div class="login__box--transparent">
+                    <span>Get the app.</span>
+                    <div class="login__appstores">
+                        <img src="{% static "images/ios.png" %}" class="login__appstore" alt="Apple appstore logo" title="Apple appstore logo" />
+                        <img src="{% static "images/android.png" %}" class="login__appstore" alt="Android appstore logo" title="Android appstore logo" />
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footer__column">
+                <nav class="footer__nav">
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a href="#" class="footer__link">About</a></li>
+                        <li class="footer__list-item"><a href="#" class="footer__link">Help</a></li>
+                        <li class="footer__list-item"><a href="#" class="footer__link">Press</a></li>
+                        <li class="footer__list-item"><a href="#" class="footer__link">Api</a></li>
+                        <li class="footer__list-item"><a href="#" class="footer__link">JOBS</a></li>
+                        <li class="footer__list-item"><a href="#" class="footer__link">PRIVACY</a></li>
+                        <li class="footer__list-item"><a href="#" class="footer__link">TERMS</a></li>
+                        <li class="footer__list-item"><a href="#" class="footer__link">LOCATIONS</a></li>
+                        <li class="footer__list-item"><a href="#" class="footer__link">TOP ACCOUNTS</a></li>
+                        <li class="footer__list-item"><a href="#" class="footer__link">HASHTAGS</a></li>
+                        <li class="footer__list-item"><a href="#" class="footer__link">LANGUAGE</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer__column">
+                <span class="footer__copyright">© 2020 INSTRAGRAM FROM FACEBOOK</span>
+            </div>
+        </footer>
+    </body>
+</html>

